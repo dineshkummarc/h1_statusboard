@@ -66,6 +66,9 @@ app.post('/voice/record', function (req, res) {
   var url = req.body.RecordingUrl;
   sys.log(url);
 
+  var twiml = '<?xml version="1.0" encoding="UTF-8" ?>\n<Response>\n<Say>Thanks. Your recording will be played to the office now.</Say>\n<Hangup/>\n</Response>';
+
+
   res.send('', {'Content-Type':'text/xml'}, 200);
 
 });

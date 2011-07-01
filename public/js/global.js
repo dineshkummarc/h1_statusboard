@@ -16,10 +16,19 @@ var onMessage = function (message, author) {
 	sizeMessages(false, messageType);
 	var track = soundManager.getSoundById('alert');
 	track.play();
-}
+};
+
+
+var onRecording = function (url, author) {
+
+
+};
 
 // Make sure we have Now.js loaded before we try to play with it
-if (typeof now != "undefined") now.onMessage = onMessage;
+if (typeof now != "undefined") {
+  now.onMessage = onMessage;
+  now.onRecording = onRecording;
+}
 
 function sizeMessages(firstRun, messageType) {
 	
