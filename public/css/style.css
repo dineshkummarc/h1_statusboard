@@ -23,9 +23,12 @@ body {
 #core {
 	position:relative;
 	text-align:center;
-	font:90px/120px HelveticaNeue, 'Helvetica Neue', HelveticaNeueLTStd-Roman, HelveticaNeueLTPro-Roman, Helvetica, Arial, sans-serif;
-	color:#FFF;
 }
-#content {
-	margin:50px 0 0;
-}
+	#content {
+		margin:50px 0 0;
+	}
+		.message {
+			font:90px/120px HelveticaNeue, 'Helvetica Neue', HelveticaNeueLTStd-Roman, HelveticaNeueLTPro-Roman, Helvetica, Arial, sans-serif;
+			color:#FFF;
+			text-shadow: 0 2px 10px #a1b2bb;
+		}
