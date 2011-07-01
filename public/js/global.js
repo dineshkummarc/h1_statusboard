@@ -21,7 +21,7 @@ var onMessage = function (message, author) {
 
 var onRecording = function (url, author) {
 	soundManager.createSound({
-		id: 'incomingRecording',
+		id: 'incomingRecording' + Math.random(),
 		url: url,
 		autoLoad: true,
 		autoPlay: true,
