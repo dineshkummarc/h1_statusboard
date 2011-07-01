@@ -79,7 +79,7 @@ function sizeMessages(firstRun, messageType)
 					}, speed);
 				break;
 				case 2:
-					$(this).children('.title').css('color', '#dbffea');
+					$(this).children('.title').css('font-style', 'italic');
 				break;
 				default:
 				break;

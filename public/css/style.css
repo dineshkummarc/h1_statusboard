@@ -60,12 +60,16 @@ body {
 		font-size:40px;
 		color:#FFF;
 		opacity:0.30;
+		filter:alpha(opacity=30);
 	}
 #test {
 	width:100%;
 	position:fixed;
 	bottom:10px;
 	z-index:9999;
+	font-size:30px;
+	opacity:0;
+	filter:alpha(opacity=0);
 }
 	#test a {
 		color:#CCC;
