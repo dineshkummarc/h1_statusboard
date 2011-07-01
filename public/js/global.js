@@ -33,7 +33,7 @@ function sizeMessages(firstRun, messageType) {
 	
 	$('#content').animate({
 		marginTop: 180
-	}, speed, 'easeInOutCubic');
+	}, speed, 'easeOutCubic');
 
 	$('.message').each(function(i) {
 
