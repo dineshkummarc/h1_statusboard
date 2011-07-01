@@ -61,9 +61,10 @@ app.post('/voice/incoming', function (req, res) {
 });
 
 
-app.post('/voice/record', function (req) {
+app.post('/voice/record', function (req, res) {
 
-  sys.log(req);
+  var url = req.body.RecordingUrl;
+  sys.log(url);
 
   res.send('', {'Content-Type':'text/xml'}, 200);
 
