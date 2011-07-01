@@ -5,7 +5,7 @@ $(function () {
 var onMessage = now.onMessage = function (message, author) {
 
 	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author + '</div></div>');
-	$('#content').css('margin-top', -138);
+	$('#content').css('margin-top', -8);
 	sizeMessages();
 
 }
@@ -21,7 +21,7 @@ function sizeMessages(firstRun) {
 	}
 	
 	$('#content').animate({
-		marginTop: 50
+		marginTop: 180
 	}, speed);
 
 	$('.message').each(function(i){
