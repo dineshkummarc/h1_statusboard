@@ -7,7 +7,8 @@ var onMessage = now.onMessage = function (message, author) {
 	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author + '</div></div>');
 	$('#content').css('margin-top', -8);
 	sizeMessages();
-
+	var track = soundManager.getSoundById('alert');
+	track.play();
 }
 
 function sizeMessages(firstRun) {
@@ -40,3 +41,18 @@ function sizeMessages(firstRun) {
 	});
 
 }
+
+soundManager.url = "swf/";
+
+soundManager.onready(function() {
+	soundManager.createSound({
+	  id: 'alert',
+	  url: 'audio/alert.mp3',
+	  autoLoad: true,
+	  autoPlay: false,
+	  onload: function() {
+	    alert('The sound '+this.sID+' loaded!');
+	  },
+	  volume: 50
+	});
+});
