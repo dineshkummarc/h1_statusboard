@@ -82,7 +82,7 @@ function sizeMessages(firstRun, messageType)
 					$(this).children('.title').css('font-style', 'italic');
 				break;
 				case 3:
-					$(this).children('.title').css('font-style', 'bold');
+					$(this).children('.title').css('font-weight', 'bold');
 				break;
 				default:
 				break;
