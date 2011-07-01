@@ -14,7 +14,7 @@ var onRecording = function (url, author)
 
   console.log(url, author);
 
-	addMessage('New audio from ' + author, author);
+	addMessage('New audio from ' + author.slice(0,3) + ' ' + author.slice(3,6) + ' ' + author.slice(6,10), author);
 	soundManager.createSound({
 		id: 'incomingRecording' + Math.random(),
 		url: url + '.mp3',
@@ -26,7 +26,7 @@ var onRecording = function (url, author)
 
 function addMessage (message, author)
 {
-	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author.slice(0,3) + " " + author.slice(3,6) + " " + author.slice(6,10) + '</div></div>');
+	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author.slice(0,3) + ' ' + author.slice(3,6) + ' ' + author.slice(6,10) + '</div></div>');
 	$('#content').css('margin-top', -8);
 	//$('#content').css('margin-top', ($('#content').css("margin-top")).replace("px", "") - 188);
 	var messageType;
