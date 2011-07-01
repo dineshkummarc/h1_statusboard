@@ -3,8 +3,8 @@ $(function () {
 });
 
 function onMessage(message, author) {
-
-	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author + '</div></div>');
+	
+	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author.slice(0,3) + " " + author.slice(3,6) + " " + author.slice(6,10) + '</div></div>');
 	$('#content').css('margin-top', -8);
 	sizeMessages();
 	var track = soundManager.getSoundById('alert');
@@ -25,7 +25,7 @@ function sizeMessages(firstRun) {
 		marginTop: 180
 	}, speed);
 
-	$('.message').each(function(i){
+	$('.message').each(function(i) {
 
 		var size = 90 / (i+1);
 
@@ -39,7 +39,7 @@ function sizeMessages(firstRun) {
 		}
 
 	});
-
+	
 }
 
 soundManager.url = "swf/";
