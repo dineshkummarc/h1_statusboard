@@ -47,8 +47,26 @@ body {
 			font-size:14px;
 			color:#a5c1d4;
 		}
+	#info-left {
+		position:fixed;
+		left:40px;
+	}
+	#info-right {
+		position:fixed;
+		right:40px;
+	}
+	.info {
+		bottom:20px;
+		font-size:40px;
+		color:#FFF;
+		opacity:0.5;
+	}
 #test {
 	width:100%;
 	position:fixed;
 	bottom:10px;
+	z-index:9999;
 }
+	#test a {
+		color:#CCC;
+	}
