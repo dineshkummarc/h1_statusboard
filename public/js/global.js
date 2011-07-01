@@ -50,9 +50,6 @@ soundManager.onready(function() {
 	  url: 'audio/alert.mp3',
 	  autoLoad: true,
 	  autoPlay: false,
-	  onload: function() {
-	    alert('The sound '+this.sID+' loaded!');
-	  },
 	  volume: 50
 	});
 });
