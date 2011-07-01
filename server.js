@@ -3,6 +3,8 @@ var express   = require('express'),
     nowjs     = require('now'),
     everyone  = nowjs.initialize(app);
 
+var PORT = process.env.PORT || 3000;
+
 /////////////
 //         //
 // Express //
@@ -16,7 +18,8 @@ app.configure(function () {
 
 });
 
-app.listen(80);
+
+app.listen(PORT);
 
 
 /////////
