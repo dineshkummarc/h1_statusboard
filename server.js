@@ -9,7 +9,8 @@ var sys       = require('sys'),
 //  Configs
 
 var PORT = process.env.PORT || 3000,
-    PIVITOL_GUID = "62cef81b16ebe06becb9dd2e7ad668bc";
+    PIVITOL_GUID = "62cef81b16ebe06becb9dd2e7ad668bc",
+    HOST = "http://severe-lightning-442.herokuapp.com";
 
 /////////////
 //         //
@@ -33,7 +34,7 @@ app.configure(function () {
 });
 
 
-app.post('/incoming', function (req, res) {
+app.post('/sms/incoming', function (req, res) {
 
   var message = req.body.Body;
   var from = req.body.From;
@@ -47,6 +48,14 @@ app.post('/incoming', function (req, res) {
   try {
     everyone.now.onMessage(message, from);
   } catch (e) {}
+
+});
+
+
+
+app.post('/voice/incoming', function (req, res) {
+
+  var twiml = '<?xml version="1.0" encoding="UTF-8" ?>\n<Response>\n<Play>' + host + '/audio/alert.mp3</Play>\n</Response>';
 
 });
 
