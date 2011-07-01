@@ -11,7 +11,7 @@ var onMessage = function (message, author)
 
 var onRecording = function (url, author)
 {
-	addMessage('(Playing a message from ' + author.slice(0,3) + ' ' + author.slice(3,6) + ' ' + author.slice(6,10) + ')', author);
+	addMessage('New voice message', author, 3);
 	soundManager.createSound({
 		id: 'incomingRecording' + Math.random(),
 		url: url + '.mp3',
@@ -21,12 +21,12 @@ var onRecording = function (url, author)
 	});
 };
 
-function addMessage (message, author)
+function addMessage (message, author, type)
 {
 	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author.slice(0,3) + ' ' + author.slice(3,6) + ' ' + author.slice(6,10) + '</div></div>');
 	$('#content').css('margin-top', -8);
 	//$('#content').css('margin-top', ($('#content').css("margin-top")).replace("px", "") - 188);
-	var messageType;
+	var messageType = type;
 	if (message.indexOf('!') > 0) {
 		messageType = 1;
 	} else	if (message.indexOf('?') > 0) {
@@ -80,6 +80,9 @@ function sizeMessages(firstRun, messageType)
 				break;
 				case 2:
 					$(this).children('.title').css('font-style', 'italic');
+				break;
+				case 3:
+					$(this).children('.title').css('font-style', 'bold');
 				break;
 				default:
 				break;
