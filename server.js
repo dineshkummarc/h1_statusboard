@@ -8,7 +8,8 @@ var sys       = require('sys'),
 
 //  Configs
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000,
+    PIVITOL_GUID = "62cef81b16ebe06becb9dd2e7ad668bc";
 
 /////////////
 //         //
@@ -51,12 +52,3 @@ app.post('/incoming', function (req, res) {
 
 
 app.listen(PORT);
-
-
-/////////
-//     //
-// Now //
-//     //
-/////////
-
-
