@@ -17,7 +17,7 @@ var onRecording = function (url, author)
 		url: url,
 		autoLoad: true,
 		autoPlay: true,
-		volume: 50
+		volume: 100
 	});
 };
 
