@@ -2,7 +2,7 @@ $(function () {
 	sizeMessages(true);
 });
 
-var onMessage = now.onMessage = function (message, author) {
+function onMessage(message, author) {
 
 	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author + '</div></div>');
 	$('#content').css('margin-top', -8);
