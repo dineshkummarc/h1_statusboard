@@ -27,7 +27,7 @@ var onRecording = function (url, author) {
 		autoPlay: true,
 		volume: 50
 	});
-	onMessage('New audio from' + author, author);
+	onMessage('New audio from ' + author, author);
 };
 
 // Make sure we have Now.js loaded before we try to play with it
