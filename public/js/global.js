@@ -20,8 +20,14 @@ var onMessage = function (message, author) {
 
 
 var onRecording = function (url, author) {
-
-
+	soundManager.createSound({
+		id: 'incomingRecording',
+		url: url,
+		autoLoad: true,
+		autoPlay: true,
+		volume: 50
+	});
+	onMessage('New audio from' + author, author);
 };
 
 // Make sure we have Now.js loaded before we try to play with it
@@ -86,10 +92,10 @@ soundManager.url = "swf/";
 
 soundManager.onready(function() {
 	soundManager.createSound({
-	  id: 'alert',
-	  url: 'audio/alert.mp3',
-	  autoLoad: true,
-	  autoPlay: false,
-	  volume: 50
+		id: 'alert',
+		url: 'audio/alert.mp3',
+		autoLoad: true,
+		autoPlay: false,
+		volume: 50
 	});
 });
