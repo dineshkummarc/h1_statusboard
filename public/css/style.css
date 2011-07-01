@@ -1,0 +1,31 @@
+/* Killer Nodify CSS */
+
+* {
+	margin:0;
+	padding:0;
+}
+html, body {
+	width:100%;
+	height:100%;
+}
+body {
+	position:fixed;
+	background:url('../images/background.png');
+}
+#background-top {
+	width:100%;
+	height:684px;
+	background:url('../images/background-top.png');
+	position:fixed;
+	top:0;
+	left:0;
+}
+#core {
+	position:relative;
+	text-align:center;
+	font:90px/120px HelveticaNeue, 'Helvetica Neue', HelveticaNeueLTStd-Roman, HelveticaNeueLTPro-Roman, Helvetica, Arial, sans-serif;
+	color:#FFF;
+}
+#content {
+	margin:50px 0 0;
+}
