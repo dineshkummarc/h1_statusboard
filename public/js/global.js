@@ -27,7 +27,7 @@ function sizeMessages(firstRun) {
 	
 	$('#content').animate({
 		marginTop: 180
-	}, speed);
+	}, speed, 'easeOutCubic');
 
 	$('.message').each(function(i) {
 
@@ -39,7 +39,7 @@ function sizeMessages(firstRun) {
 		$(this).children('.title').animate({
 			fontSize: size + 'px',
 			lineHeight: (size + 20) + 'px'
-		}, speed);
+		}, speed, 'easeOutCubic');
 		
 		if (i > 10) {
 			$(this).remove();
