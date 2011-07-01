@@ -56,6 +56,7 @@ app.post('/sms/incoming', function (req, res) {
 app.post('/voice/incoming', function (req, res) {
 
   var twiml = '<?xml version="1.0" encoding="UTF-8" ?>\n<Response>\n<Play>' + HOST + '/audio/alert.mp3</Play>\n</Response>';
+  res.send(twiml, {'Content-Type':'text/xml'}, 200);
 
 });
 

@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "dependencies": {
     "express": "2.4.0",
-    "now": "0.6.1",
-    "github": "0.0.6"
+    "now": "0.6.1"
   }
 }
