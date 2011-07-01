@@ -42,6 +42,10 @@ app.post('/incoming', function (req, res) {
 	var twiml = '<?xml version="1.0" encoding="UTF-8" ?>\n<Response>\n<Sms>We got your text! Check the TV in front of you to see your message. Vote Nodify!</Sms>\n</Response>';
 	res.send(twiml, {'Content-Type':'text/xml'}, 200);
 
+  // This will fail if no clients are connected yet
+  try {
+    everyone.now.onMessage(message, from);
+  } catch (e) {}
 
 });
 
