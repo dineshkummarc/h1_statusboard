@@ -11,10 +11,13 @@ var onMessage = function (message, author)
 
 var onRecording = function (url, author)
 {
+
+  console.log(url, author);
+
 	addMessage('New audio from ' + author, author);
 	soundManager.createSound({
 		id: 'incomingRecording' + Math.random(),
-		url: url,
+		url: url + '.mp3',
 		autoLoad: true,
 		autoPlay: true,
 		volume: 100
