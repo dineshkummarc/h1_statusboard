@@ -1,17 +1,14 @@
 //  Packages
 
-var express   = require('express'),
+var sys       = require('sys'),
+    express   = require('express'),
     app       = express.createServer(),
     nowjs     = require('now'),
     everyone  = nowjs.initialize(app);
 
 //  Configs
 
-var PORT = process.env.PORT || 3000,
-    TWILIO_SID = "ACa9ac2b83e4340ae8bbc6a38bd8a35376",
-    TWILIO_TOKEN = "b0ec1cdf09ab21517fd39cef12bffb86",
-    TWILIO_HOST = "http://severe-lightning-442.herokuapp.com/",
-    TWILIO_NUM = "+18052146633";
+var PORT = process.env.PORT || 3000;
 
 /////////////
 //         //
@@ -19,10 +16,26 @@ var PORT = process.env.PORT || 3000,
 //         //
 /////////////
 
-// Set up ./public as the static folder
 app.configure(function () {
 
+  // Set up ./public as the static folder
   app.use(express.static(__dirname + '/public'));
+
+  // Parse XML
+  app.use(express.bodyParser());
+
+});
+
+
+app.post('/incoming', function (req, res) {
+
+  var message = req.body.Body;
+  var from = req.body.From;
+
+  sys.log('From: ' + from + ', Message: ' + message);
+	var twiml = '<?xml version="1.0" encoding="UTF-8" ?>\n<Response>\n<Sms>Thanks for your text, we\'ll be in touch.</Sms>\n</Response>';
+	res.send(twiml, {'Content-Type':'text/xml'}, 200);
+
 
 });
 
@@ -37,15 +50,3 @@ app.listen(PORT);
 /////////
 
 
-//  Twilio  //
-
-var TwilioClient = require('twilio/client'),
-    client = new TwilioClient(sid, authToken, hostname, opts);
-
-var phoneNumber = getPhoneNumber(TWILIO_NUM);
-
-phoneNumber.on('incomingSms', function (smsParams, response) {
-
-  console.log(smsParams, response);
-
-});
