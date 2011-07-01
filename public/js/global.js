@@ -2,8 +2,27 @@ $(function () {
 	sizeMessages(true, null);
 });
 
-var onMessage = function (message, author) {
+var onMessage = function (message, author)
+{
+	addMessage(message, author);
+	var track = soundManager.getSoundById('alert');
+	track.play();
+};
 
+var onRecording = function (url, author)
+{
+	addMessage('New audio from ' + author, author);
+	soundManager.createSound({
+		id: 'incomingRecording' + Math.random(),
+		url: url,
+		autoLoad: true,
+		autoPlay: true,
+		volume: 50
+	});
+};
+
+function addMessage (message, author)
+{
 	$('#content').prepend('<div class="message"><div class="title">' + message + '</div><div class="author">' + author.slice(0,3) + " " + author.slice(3,6) + " " + author.slice(6,10) + '</div></div>');
 	$('#content').css('margin-top', -8);
 	//$('#content').css('margin-top', ($('#content').css("margin-top")).replace("px", "") - 188);
@@ -13,22 +32,8 @@ var onMessage = function (message, author) {
 	} else	if (message.indexOf('?') > 0) {
 		messageType = 2;
 	}
-	sizeMessages(false, messageType);
-	var track = soundManager.getSoundById('alert');
-	track.play();
-};
-
-
-var onRecording = function (url, author) {
-	soundManager.createSound({
-		id: 'incomingRecording' + Math.random(),
-		url: url,
-		autoLoad: true,
-		autoPlay: true,
-		volume: 50
-	});
-	onMessage('New audio from ' + author, author);
-};
+	sizeMessages(false, messageType);	
+}
 
 // Make sure we have Now.js loaded before we try to play with it
 if (typeof now != "undefined") {
@@ -36,7 +41,8 @@ if (typeof now != "undefined") {
   now.onRecording = onRecording;
 }
 
-function sizeMessages(firstRun, messageType) {
+function sizeMessages(firstRun, messageType)
+{
 	
 	var speed;
 	
@@ -90,7 +96,8 @@ function sizeMessages(firstRun, messageType) {
 
 soundManager.url = "swf/";
 
-soundManager.onready(function() {
+soundManager.onready(function()
+{
 	soundManager.createSound({
 		id: 'alert',
 		url: 'audio/alert.mp3',
