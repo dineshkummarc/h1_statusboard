@@ -11,9 +11,6 @@ var onMessage = function (message, author)
 
 var onRecording = function (url, author)
 {
-
-  console.log(url, author);
-
 	addMessage('New audio from ' + author.slice(0,3) + ' ' + author.slice(3,6) + ' ' + author.slice(6,10), author);
 	soundManager.createSound({
 		id: 'incomingRecording' + Math.random(),
