@@ -73,7 +73,7 @@ app.post('/voice/record', function (req, res) {
 
   try {
 
-    everyone.now.onRecord(url, '911');
+    everyone.now.onRecording(url, '911');
 
   } catch (e) {}
 
