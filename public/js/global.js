@@ -1,5 +1,5 @@
 $(function () {
-	sizeMessages();
+	sizeMessages(true);
 });
 
 var onMessage = now.onMessage = function (message, author) {
@@ -10,11 +10,19 @@ var onMessage = now.onMessage = function (message, author) {
 
 }
 
-function sizeMessages() {
+function sizeMessages(firstRun) {
+	
+	var speed;
+	
+	if (firstRun) {
+		speed = 0;
+	} else {
+		speed = 1000;
+	}
 	
 	$('#content').animate({
 		marginTop: 50
-	}, 2000);
+	}, speed);
 
 	$('.message').each(function(i){
 
@@ -23,7 +31,7 @@ function sizeMessages() {
 		$(this).children('.title').animate({
 			fontSize: size + 'px',
 			lineHeight: (size + 20) + 'px'
-		}, 2000);
+		}, speed);
 		
 		if (i > 10) {
 			$(this).remove();
