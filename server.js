@@ -24,6 +24,11 @@ app.configure(function () {
   // Parse XML
   app.use(express.bodyParser());
 
+  // Not sure what these do....
+  app.use(express.methodOverride());
+  app.use(app.router);
+  
+
 });
 
 
